@@ -109,6 +109,7 @@
             this.txtRaiseCurrentYearConfig = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.factorsTableAdapter = new PisaNamespace.pferdDataSetTableAdapters.factorsTableAdapter();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tabCalculate.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -697,6 +698,7 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.btnDelete);
             this.groupBox5.Controls.Add(this.btnSaveArticleFactor);
             this.groupBox5.Controls.Add(this.dataGridView1);
             this.groupBox5.Location = new System.Drawing.Point(6, 3);
@@ -913,6 +915,16 @@
             // 
             this.factorsTableAdapter.ClearBeforeFill = true;
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(257, 299);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.TabIndex = 4;
+            this.btnDelete.Text = "Radera";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // Pisa2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1034,6 +1046,7 @@
         private System.Windows.Forms.Button btnSaveArticleFactor;
         private System.Windows.Forms.DataGridViewTextBoxColumn keyDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn valueDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btnDelete;
     }
 }
 
