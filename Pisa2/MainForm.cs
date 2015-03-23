@@ -27,7 +27,7 @@ namespace PisaNamespace
             InitializeVar();
             InitializeGUI();
             InitializeConfig();
-            /*InitializeGridview();*/   // OLD CODE
+            /*InitializeGridview();*/
             
             populateDropdown();
             
