@@ -1,0 +1,35 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Pisa2.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="raise_current_year" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="raise_next_year" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="euro_rate_current" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">8.6</Value>
+    </Setting>
+    <Setting Name="euro_rate_next_year" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">8.75</Value>
+    </Setting>
+    <Setting Name="current_year" Type="System.String" Scope="User">
+      <Value Profile="(Default)">2014</Value>
+    </Setting>
+    <Setting Name="next_year" Type="System.String" Scope="User">
+      <Value Profile="(Default)">2015</Value>
+    </Setting>
+    <Setting Name="ArticleFactors" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Välj Artikel:000,AAA:111,BBB:222,CCC:333,DDD:444,EEE:555,FFF:666,GGG:777,HHH:888,III:999,JJJ:000,XAA:111,XBB:222,XCC:333,XDD:444,XEE:555,XFF:666,XGG:777,XHH:888,XII:999,XJJ:000</Value>
+    </Setting>
+    <Setting Name="pferdConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\pferd.mdb&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.OleDb&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\pferd.mdb</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
