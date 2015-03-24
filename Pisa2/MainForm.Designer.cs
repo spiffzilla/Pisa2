@@ -85,6 +85,7 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.btnSaveArticleFactor = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.keyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -109,7 +110,9 @@
             this.txtRaiseCurrentYearConfig = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.factorsTableAdapter = new PisaNamespace.pferdDataSetTableAdapters.factorsTableAdapter();
-            this.btnDelete = new System.Windows.Forms.Button();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.timerStatusStrip = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.tabCalculate.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -125,6 +128,7 @@
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox4.SuspendLayout();
+            this.statusStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -185,7 +189,7 @@
             this.tabCalculate.Name = "tabCalculate";
             this.tabCalculate.SelectedIndex = 0;
             this.tabCalculate.Size = new System.Drawing.Size(758, 379);
-            this.tabCalculate.TabIndex = 37;
+            this.tabCalculate.TabIndex = 14;
             // 
             // tabPage1
             // 
@@ -244,7 +248,7 @@
             this.comboBox1.MaxDropDownItems = 3;
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 35;
+            this.comboBox1.TabIndex = 2;
             this.comboBox1.ValueMember = "factors.value";
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -270,6 +274,9 @@
             this.txtPisaPris.Size = new System.Drawing.Size(121, 20);
             this.txtPisaPris.TabIndex = 1;
             this.txtPisaPris.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPisaPris_KeyDown);
+            this.txtPisaPris.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPisaPris_KeyPress);
+            this.txtPisaPris.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPisaPris_KeyUp);
+            this.txtPisaPris.Validating += new System.ComponentModel.CancelEventHandler(this.txtPisaPris_Validating);
             // 
             // label2
             // 
@@ -298,6 +305,7 @@
             this.txtRabatt.Size = new System.Drawing.Size(121, 20);
             this.txtRabatt.TabIndex = 3;
             this.txtRabatt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRabatt_KeyDown);
+            this.txtRabatt.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtRabatt_KeyUp);
             // 
             // btnCalculate
             // 
@@ -316,7 +324,6 @@
             this.txtFaktor.Size = new System.Drawing.Size(100, 20);
             this.txtFaktor.TabIndex = 2;
             this.txtFaktor.Visible = false;
-            this.txtFaktor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFaktor_KeyDown);
             // 
             // groupBox2
             // 
@@ -421,7 +428,7 @@
             this.chkCurrentYear.Location = new System.Drawing.Point(557, 292);
             this.chkCurrentYear.Name = "chkCurrentYear";
             this.chkCurrentYear.Size = new System.Drawing.Size(87, 17);
-            this.chkCurrentYear.TabIndex = 34;
+            this.chkCurrentYear.TabIndex = 12;
             this.chkCurrentYear.Text = "Visa nästa år";
             this.chkCurrentYear.UseVisualStyleBackColor = true;
             this.chkCurrentYear.CheckedChanged += new System.EventHandler(this.chkNewYear_CheckedChanged);
@@ -680,7 +687,7 @@
             this.btnClear.Location = new System.Drawing.Point(557, 261);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
-            this.btnClear.TabIndex = 33;
+            this.btnClear.TabIndex = 11;
             this.btnClear.Text = "Rensa";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -708,13 +715,23 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Omräkningsfaktorer";
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(257, 299);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.TabIndex = 17;
+            this.btnDelete.Text = "Radera";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // btnSaveArticleFactor
             // 
             this.btnSaveArticleFactor.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnSaveArticleFactor.Location = new System.Drawing.Point(256, 19);
             this.btnSaveArticleFactor.Name = "btnSaveArticleFactor";
             this.btnSaveArticleFactor.Size = new System.Drawing.Size(75, 23);
-            this.btnSaveArticleFactor.TabIndex = 3;
+            this.btnSaveArticleFactor.TabIndex = 16;
             this.btnSaveArticleFactor.Text = "Spara";
             this.btnSaveArticleFactor.UseVisualStyleBackColor = true;
             this.btnSaveArticleFactor.Click += new System.EventHandler(this.btnSaveArticleFactor_Click);
@@ -730,7 +747,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(6, 19);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(244, 306);
-            this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.TabIndex = 15;
             // 
             // keyDataGridViewTextBoxColumn
             // 
@@ -809,7 +826,7 @@
             this.button2.Location = new System.Drawing.Point(253, 147);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 50;
+            this.button2.TabIndex = 25;
             this.button2.Text = "Rensa";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -828,7 +845,7 @@
             this.button1.Location = new System.Drawing.Point(253, 20);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 121);
-            this.button1.TabIndex = 37;
+            this.button1.TabIndex = 24;
             this.button1.Text = "Spara";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
@@ -838,7 +855,7 @@
             this.txtNextYearConfig.Location = new System.Drawing.Point(157, 151);
             this.txtNextYearConfig.Name = "txtNextYearConfig";
             this.txtNextYearConfig.Size = new System.Drawing.Size(67, 20);
-            this.txtNextYearConfig.TabIndex = 49;
+            this.txtNextYearConfig.TabIndex = 23;
             // 
             // label6
             // 
@@ -854,7 +871,7 @@
             this.txtCurrentYearConfig.Location = new System.Drawing.Point(157, 125);
             this.txtCurrentYearConfig.Name = "txtCurrentYearConfig";
             this.txtCurrentYearConfig.Size = new System.Drawing.Size(67, 20);
-            this.txtCurrentYearConfig.TabIndex = 48;
+            this.txtCurrentYearConfig.TabIndex = 22;
             // 
             // label7
             // 
@@ -870,7 +887,7 @@
             this.txtEuroRateNextYearConfig.Location = new System.Drawing.Point(157, 100);
             this.txtEuroRateNextYearConfig.Name = "txtEuroRateNextYearConfig";
             this.txtEuroRateNextYearConfig.Size = new System.Drawing.Size(67, 20);
-            this.txtEuroRateNextYearConfig.TabIndex = 47;
+            this.txtEuroRateNextYearConfig.TabIndex = 21;
             // 
             // label8
             // 
@@ -886,7 +903,7 @@
             this.txtEuroRateCurrentYearConfig.Location = new System.Drawing.Point(157, 74);
             this.txtEuroRateCurrentYearConfig.Name = "txtEuroRateCurrentYearConfig";
             this.txtEuroRateCurrentYearConfig.Size = new System.Drawing.Size(67, 20);
-            this.txtEuroRateCurrentYearConfig.TabIndex = 46;
+            this.txtEuroRateCurrentYearConfig.TabIndex = 20;
             // 
             // label9
             // 
@@ -902,34 +919,45 @@
             this.txtRaiseNextYearConfig.Location = new System.Drawing.Point(157, 48);
             this.txtRaiseNextYearConfig.Name = "txtRaiseNextYearConfig";
             this.txtRaiseNextYearConfig.Size = new System.Drawing.Size(67, 20);
-            this.txtRaiseNextYearConfig.TabIndex = 45;
+            this.txtRaiseNextYearConfig.TabIndex = 19;
             // 
             // txtRaiseCurrentYearConfig
             // 
             this.txtRaiseCurrentYearConfig.Location = new System.Drawing.Point(157, 22);
             this.txtRaiseCurrentYearConfig.Name = "txtRaiseCurrentYearConfig";
             this.txtRaiseCurrentYearConfig.Size = new System.Drawing.Size(67, 20);
-            this.txtRaiseCurrentYearConfig.TabIndex = 44;
+            this.txtRaiseCurrentYearConfig.TabIndex = 18;
             // 
             // factorsTableAdapter
             // 
             this.factorsTableAdapter.ClearBeforeFill = true;
             // 
-            // btnDelete
+            // statusStrip
             // 
-            this.btnDelete.Location = new System.Drawing.Point(257, 299);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnDelete.TabIndex = 4;
-            this.btnDelete.Text = "Radera";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel});
+            this.statusStrip.Location = new System.Drawing.Point(0, 409);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(780, 22);
+            this.statusStrip.TabIndex = 32;
+            this.statusStrip.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel
+            // 
+            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
+            this.toolStripStatusLabel.Size = new System.Drawing.Size(118, 17);
+            this.toolStripStatusLabel.Text = "toolStripStatusLabel1";
+            // 
+            // timerStatusStrip
+            // 
+            this.timerStatusStrip.Interval = 2000;
             // 
             // Pisa2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(780, 416);
+            this.ClientSize = new System.Drawing.Size(780, 431);
+            this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.tabCalculate);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -939,6 +967,7 @@
             this.Name = "Pisa2";
             this.Text = "Pisa 2 v2.0";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Pisa2_FormClosing);
+            this.Load += new System.EventHandler(this.Pisa2_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tabCalculate.ResumeLayout(false);
@@ -960,6 +989,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.statusStrip.ResumeLayout(false);
+            this.statusStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1047,6 +1078,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn keyDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn valueDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.StatusStrip statusStrip;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
+        private System.Windows.Forms.Timer timerStatusStrip;
     }
 }
 

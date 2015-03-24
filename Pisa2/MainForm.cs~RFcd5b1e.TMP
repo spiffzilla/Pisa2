@@ -129,8 +129,7 @@ namespace PisaNamespace
             ColorRabatt();
             if (e.KeyCode == Keys.Enter)
             {
-                if (ValidNumericInput(txtRabatt.Text, false))
-                    calculateAndShow();
+                calculateAndShow();
             }
         }
 
@@ -166,56 +165,50 @@ namespace PisaNamespace
             }
             if (pisaCheck && faktorCheck && rabattCheck)
             {
-                FactorRebateOK(pisaPrice, factor, rabatt, show12);
+                // Om allt OK
+                
+                // Variabler
+                double gross = 0;
+                double sliding = 0;
+                double grossSekCurrentYear = 0;
+                double grossEuroCurrentYear = 0;
+                double grossSekNextYear = 0;
+                double grossEuroNextYear = 0;
+                
+                double raiseCurrentYearConverted = 1 + (raiseCurrentYear / 100);           // Påslag med procent 2014
+                double raiseNextYearConverted = 1 + (raiseNextYear / 100);           // Påslag med procent 2015
+                
+                // Räkna ut
+                sliding = pisaPrice - (rabatt / 100 * pisaPrice);            // 2
+                
+                // Check if year is 2014 or later
+                if (Year() == 2014)
+                    gross = sliding / 100 * euroRateCurrentYear;                 // 1
+                else
+                    gross = sliding / 100 * euroRateNextYear;                 // 1
+                grossSekCurrentYear = pisaPrice / 100 * factor * raiseCurrentYearConverted;  // 3
+                grossEuroCurrentYear = grossSekCurrentYear / euroRateCurrentYear;              // 4
+                grossSekNextYear = grossSekCurrentYear * raiseNextYearConverted;  // 3 2014
+                grossEuroNextYear = grossSekNextYear / euroRateNextYear;    // 4 2015
+                // Sätt uträkningarna i textboxarna
+                if (show12)
+                {
+                    txtGlidandePris.Text = gross.ToString("N").PadLeft(7);                     // 1   
+                    txtNettoEuro100.Text = sliding.ToString("N").PadLeft(7);                   // 2   
+                }
+                txtBrutto2014Sek.Text = rundaAv(grossSekCurrentYear).ToString("N").PadLeft(7);             // 3 2014  
+                txtBrutto2014Euro.Text = grossEuroCurrentYear.ToString("N").PadLeft(7);           // 4 2014  
+                txtBrutto2015Sek.Text = rundaAv(grossSekNextYear).ToString("N").PadLeft(7);             // 3 2015  
+                txtBrutto2015Euro.Text = grossEuroNextYear.ToString("N").PadLeft(7);           // 4 2015  
             }
             else
             {
-                StatusStripText("Kontrollera inmatade värden, Pisa pris och faktor måste vara angivna.");
-                //InitializeGUI();
+                MessageBox.Show("Kontrollera inmatade värden, Pisa pris och faktor måste vara angivna.",
+                "Fel!",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Exclamation);
+                InitializeGUI();
             }
-        }
-
-        private void FactorRebateOK(double pisaPrice, double factor, double rabatt, bool show12)
-        {
-            // Om allt OK
-
-            // Variabler
-            double gross = 0;
-            double sliding = 0;
-            double grossSekCurrentYear = 0;
-            double grossEuroCurrentYear = 0;
-            double grossSekNextYear = 0;
-            double grossEuroNextYear = 0;
-
-            double raiseCurrentYearConverted = 1 + (raiseCurrentYear / 100);           // Påslag med procent 2014
-            double raiseNextYearConverted = 1 + (raiseNextYear / 100);           // Påslag med procent 2015
-
-            // Räkna ut
-            sliding = pisaPrice - (rabatt / 100 * pisaPrice);            // 2
-
-            // Check if year is 2014 or later
-            if (Year() == 2014)
-            {
-                gross = sliding / 100 * euroRateCurrentYear;                 // 1
-            }
-            else
-            {
-                gross = sliding / 100 * euroRateNextYear;                 // 1
-            }
-            grossSekCurrentYear = pisaPrice / 100 * factor * raiseCurrentYearConverted;  // 3
-            grossEuroCurrentYear = grossSekCurrentYear / euroRateCurrentYear;              // 4
-            grossSekNextYear = grossSekCurrentYear * raiseNextYearConverted;  // 3 2014
-            grossEuroNextYear = grossSekNextYear / euroRateNextYear;    // 4 2015
-            // Sätt uträkningarna i textboxarna
-            if (show12)
-            {
-                txtGlidandePris.Text = gross.ToString("N").PadLeft(7);                     // 1   
-                txtNettoEuro100.Text = sliding.ToString("N").PadLeft(7);                   // 2   
-            }
-            txtBrutto2014Sek.Text = rundaAv(grossSekCurrentYear).ToString("N").PadLeft(7);             // 3 2014  
-            txtBrutto2014Euro.Text = grossEuroCurrentYear.ToString("N").PadLeft(7);           // 4 2014  
-            txtBrutto2015Sek.Text = rundaAv(grossSekNextYear).ToString("N").PadLeft(7);             // 3 2015  
-            txtBrutto2015Euro.Text = grossEuroNextYear.ToString("N").PadLeft(7);           // 4 2015  
         }
         private void btnClear_Click(object sender, EventArgs e)
         {
@@ -267,34 +260,35 @@ namespace PisaNamespace
                 Properties.Settings.Default.Save();
                 InitializeVar();
                 InitializeGUI();
-                StatusStripText("Värden sparade.");
+                StatusStripText("kalle");
+                MessageBox.Show("Värden sparade.",
+                "Ok",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
             }
             else
             {
-                StatusStripText("Kontrollera inmatade värden.");
+                MessageBox.Show("Kontrollera inmatade värden.",
+                "Fel!",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
             }
         }
 
-        public void StatusStripText(string textToStrip)
+        private static void StatusStripText(string textToStrip)
         {
-            var toolStripStatusLabel = new ToolStripStatusLabel();
-            toolStripStatusLabel.Text = textToStrip;
-            statusStrip.Items.Clear();
-            statusStrip.Items.Add(toolStripStatusLabel);
-
-            System.Timers.Timer timerStatusStrip = new System.Timers.Timer();
-            timerStatusStrip.Elapsed += new System.Timers.ElapsedEventHandler(OnTimedEvent);
-            timerStatusStrip.Interval = 5000;
-            timerStatusStrip.Enabled = true;
-
-        }
-
-        private void ClearStatusStripText()
-        {
-            var toolStripStatusLabel = new ToolStripStatusLabel();
-            //toolStripStatusLabel.Text = textToStrip;
-            statusStrip.Items.Clear();
-            //statusStrip.Items.Add(toolStripStatusLabel);
+            StatusStrip statusStrip = new System.Windows.Forms.StatusStrip();
+            ToolStrip toolStripStatusLabel1 = new System.Windows.Forms.ToolStrip();
+            string[] lines;
+            lines[0] = "Kalle Aka";
+            //string[] lines = Regex.Split(textToStrip.Trim(), "\r\n");
+            int lineCount = lines.Count();
+            toolStripStatusLabel1.Text = string.Format("Lines: {0}", lineCount);
+            statusStrip.Refresh();
+            MessageBox.Show("Toolstrip.",
+                "Ok",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
         }
 
         private void Pisa2_FormClosing(object sender, FormClosingEventArgs e)
@@ -375,50 +369,39 @@ namespace PisaNamespace
             tabPage2.Text = @"Konfigurera";
             tabPage3.Text = @"Faktorer";
             btnCalculate.Enabled = false;
-            ClearStatusStripText();
         }
         private void CheckCheckBoxCurrent()
         {
             if (!chkCurrentYear.Checked)
             {
-                HideLabels();
+                lblBruttoSekNextYear.Visible = false;
+                lblBruttoEuroNextYear.Visible = false;
+                txtBrutto2015Sek.Visible = false;
+                txtBrutto2015Euro.Visible = false;
+                label18.Visible = false;
+                label19.Visible = false;
+                lblNextYearSek.Visible = false;
+                lblNextYearEuro.Visible = false;
+                lblRaiseNextYear.Visible = false;
+                lblEuroRateNextYear.Visible = false;
+                lblHojning2015.Visible = false;
+                lblEurokurs2015.Visible = false;
             }
             else
             {
-                ShowLabels();
+                lblBruttoSekNextYear.Visible = true;
+                lblBruttoEuroNextYear.Visible = true;
+                txtBrutto2015Sek.Visible = true;
+                txtBrutto2015Euro.Visible = true;
+                label18.Visible = true;
+                label19.Visible = true;
+                lblNextYearSek.Visible = true;
+                lblNextYearEuro.Visible = true;
+                lblRaiseNextYear.Visible = true;
+                lblEuroRateNextYear.Visible = true;
+                lblHojning2015.Visible = true;
+                lblEurokurs2015.Visible = true;
             }
-        }
-
-        private void ShowLabels()
-        {
-            lblBruttoSekNextYear.Visible = true;
-            lblBruttoEuroNextYear.Visible = true;
-            txtBrutto2015Sek.Visible = true;
-            txtBrutto2015Euro.Visible = true;
-            label18.Visible = true;
-            label19.Visible = true;
-            lblNextYearSek.Visible = true;
-            lblNextYearEuro.Visible = true;
-            lblRaiseNextYear.Visible = true;
-            lblEuroRateNextYear.Visible = true;
-            lblHojning2015.Visible = true;
-            lblEurokurs2015.Visible = true;
-        }
-
-        private void HideLabels()
-        {
-            lblBruttoSekNextYear.Visible = false;
-            lblBruttoEuroNextYear.Visible = false;
-            txtBrutto2015Sek.Visible = false;
-            txtBrutto2015Euro.Visible = false;
-            label18.Visible = false;
-            label19.Visible = false;
-            lblNextYearSek.Visible = false;
-            lblNextYearEuro.Visible = false;
-            lblRaiseNextYear.Visible = false;
-            lblEuroRateNextYear.Visible = false;
-            lblHojning2015.Visible = false;
-            lblEurokurs2015.Visible = false;
         }
 
 
@@ -436,7 +419,7 @@ namespace PisaNamespace
                 this.Validate();
                 this.factorsBindingSource.EndEdit();
                 this.factorsTableAdapter.Update(this.pferdDataSet.factors);
-                StatusStripText("Informationen sparades.");
+                MessageBox.Show("Informationen sparades");
             }
             catch (System.Exception ex)
             {
@@ -451,7 +434,6 @@ namespace PisaNamespace
                 if (oneCell.Selected)
                     dataGridView1.Rows.RemoveAt(oneCell.RowIndex);
             }
-            StatusStripText("Raden/raderna raderades.");
         }
 
         private void txtPisaPris_Validating(object sender, CancelEventArgs e)
@@ -469,7 +451,7 @@ namespace PisaNamespace
                 result = false;
                 if (displayErrorDialog == true)
                 {
-                    StatusStripText("Ej numeriskt värde - vänligen kontrollera inmatningen.");
+                    MessageBox.Show("Ej numeriskt värde - vänligen kontrollera inmatningen.");
                 }
             }
             
@@ -528,19 +510,5 @@ namespace PisaNamespace
             comboBox1.Select();
             comboBox1.Focus();*/
         }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            ClearStatusStripText();
-        }
-
-        void OnTimedEvent(object sender, EventArgs e)
-        //private static void OnTimedEvent(object source, ElapsedEventArgs e)
-        {
-            ClearStatusStripText();
-            timerStatusStrip.Enabled = false;
-        }
-
-
     }
 }
