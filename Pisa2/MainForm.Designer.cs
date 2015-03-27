@@ -748,6 +748,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(244, 306);
             this.dataGridView1.TabIndex = 15;
+            this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
             // 
             // keyDataGridViewTextBoxColumn
             // 

@@ -28,7 +28,8 @@ namespace PisaNamespace
             InitializeGUI();
             InitializeConfig();
             /*InitializeGridview();*/
-            
+            this.dataGridView1.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView1_DataError);
+
             populateDropdown();
             
         }
@@ -541,6 +542,56 @@ namespace PisaNamespace
             timerStatusStrip.Enabled = false;
         }
 
+        private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            return;
 
+            // DEBUG - not executed
+            try
+            {
+                string test = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+                var results = from myRow in this.pferdDataSet.Tables[0].AsEnumerable() where myRow.Field<string>("key") == test select myRow;
+                if (results.Count() > 0)
+                {
+                    MessageBox.Show("Aja baja");
+                    dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = "";
+                    /*dataGridView1.ClearSelection();
+                    dataGridView1.CurrentCell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                    dataGridView1.Rows[e.RowIndex].Selected = true;*/
+                    factorsBindingSource.MoveNext();
+                    factorsBindingSource.MovePrevious();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Debug" + ex.ToString());
+                throw;
+            }
+        }
+
+        // An error in the data occurred.
+        private void dataGridView1_DataError(object sender,
+            DataGridViewDataErrorEventArgs e)
+        {
+            // Don't throw an exception when we're done.
+            e.ThrowException = false;
+
+            // Display an error message.
+            string txt = "Error with " +
+                dataGridView1.Columns[e.ColumnIndex].HeaderText +
+                "\n\n" + e.Exception.Message;
+
+            /*MessageBox.Show("Inmatade värde(n) är inte OK, gör om gör rätt.", "Fel inmatning",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);*/
+            StatusStripText("Felaktig inmatning, vänligen kontrollera inmatningen.");
+
+            // If this is true, then the user is trapped in this cell.
+            e.Cancel = false;
+            foreach (DataGridViewCell oneCell in dataGridView1.SelectedCells)
+            {
+                if (oneCell.Selected)
+                    dataGridView1.Rows.RemoveAt(oneCell.RowIndex);
+            }
+        }
     }
 }
