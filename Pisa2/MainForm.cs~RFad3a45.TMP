@@ -566,8 +566,8 @@ namespace PisaNamespace
                     /*dataGridView1.ClearSelection();
                     dataGridView1.CurrentCell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
                     dataGridView1.Rows[e.RowIndex].Selected = true;*/
-                    factorsBindingSource1.MoveNext();
-                    factorsBindingSource1.MovePrevious();
+                    factorsBindingSource.MoveNext();
+                    factorsBindingSource.MovePrevious();
                 }
             }
             catch (Exception ex)

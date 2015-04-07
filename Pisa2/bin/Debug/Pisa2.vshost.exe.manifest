@@ -43,24 +43,24 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Pisa2.exe" size="931328">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Pisa2.exe" size="931840">
       <assemblyIdentity name="Pisa2" version="2.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>TlMELTmeYVUywVd6THzX8qDYswualtTPCWqJO11xBPU=</dsig:DigestValue>
+        <dsig:DigestValue>PbIZy0arXI0PhJ8jVcozs5qJ5mCqurH39dwnZ0Y4Eas=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="pferd.mdb" size="143360" writeableType="applicationData">
+  <file name="pferd.mdb" size="180224" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>kLCn/LqBA8TMFDUrHsMvAwBrtI7TZ/PHxKVuF46Lqa4=</dsig:DigestValue>
+      <dsig:DigestValue>g7sbPTN7Sw9buZaUuOD4quF7UVQZ09uJkG4eliZvxUg=</dsig:DigestValue>
     </hash>
   </file>
   <file name="pferd-logga.ico" size="248222">

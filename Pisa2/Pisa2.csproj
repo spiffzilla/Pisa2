@@ -105,10 +105,10 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="pferdDataSet.Designer.cs">
+    <Compile Include="pferdDataSet01.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>pferdDataSet.xsd</DependentUpon>
+      <DependentUpon>pferdDataSet01.xsd</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -133,16 +133,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="pferdDataSet.xsc">
-      <DependentUpon>pferdDataSet.xsd</DependentUpon>
+    <None Include="pferdDataSet01.xsc">
+      <DependentUpon>pferdDataSet01.xsd</DependentUpon>
     </None>
-    <None Include="pferdDataSet.xsd">
+    <None Include="pferdDataSet01.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>pferdDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>pferdDataSet01.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="pferdDataSet.xss">
-      <DependentUpon>pferdDataSet.xsd</DependentUpon>
+    <None Include="pferdDataSet01.xss">
+      <DependentUpon>pferdDataSet01.xsd</DependentUpon>
     </None>
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">

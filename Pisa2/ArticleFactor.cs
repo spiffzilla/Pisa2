@@ -19,7 +19,7 @@ namespace PisaNamespace
         private class ArticleFactor
         {
             public string Article { get; set; }
-            public int Factor { get; set; }
+            public double Factor { get; set; }
         }
 
         /// <summary>
@@ -103,7 +103,7 @@ namespace PisaNamespace
                 ArticleFactorList.Add(new ArticleFactor
                 {
                     Article = dataArr[0],
-                    Factor = Convert.ToInt32(dataArr[1])
+                    Factor = Convert.ToDouble(dataArr[1])
                 });
             }
             return true;
@@ -117,4 +117,3 @@ namespace PisaNamespace
         }
     }
 }
-
