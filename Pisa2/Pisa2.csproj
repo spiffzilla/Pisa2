@@ -105,6 +105,10 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="pferdDataSet01.cs">
+      <DependentUpon>pferdDataSet01.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="pferdDataSet01.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

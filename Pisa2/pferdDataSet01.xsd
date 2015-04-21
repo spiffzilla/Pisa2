@@ -63,7 +63,7 @@
   <xs:element name="pferdDataSet01" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="pferdDataSet01" msprop:Generator_UserDSName="pferdDataSet01">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="factors" msprop:Generator_TableClassName="factorsDataTable" msprop:Generator_TableVarName="tablefactors" msprop:Generator_TablePropName="factors" msprop:Generator_RowDeletingName="factorsRowDeleting" msprop:Generator_RowChangingName="factorsRowChanging" msprop:Generator_RowEvHandlerName="factorsRowChangeEventHandler" msprop:Generator_RowDeletedName="factorsRowDeleted" msprop:Generator_UserTableName="factors" msprop:Generator_RowChangedName="factorsRowChanged" msprop:Generator_RowEvArgName="factorsRowChangeEvent" msprop:Generator_RowClassName="factorsRow">
+        <xs:element name="factors" msprop:Generator_TableClassName="factorsDataTable" msprop:Generator_TableVarName="tablefactors" msprop:Generator_RowChangedName="factorsRowChanged" msprop:Generator_TablePropName="factors" msprop:Generator_RowDeletingName="factorsRowDeleting" msprop:Generator_RowChangingName="factorsRowChanging" msprop:Generator_RowEvHandlerName="factorsRowChangeEventHandler" msprop:Generator_RowDeletedName="factorsRowDeleted" msprop:Generator_RowClassName="factorsRow" msprop:Generator_UserTableName="factors" msprop:Generator_RowEvArgName="factorsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="key" msprop:Generator_ColumnVarNameInTable="columnkey" msprop:Generator_ColumnPropNameInRow="key" msprop:Generator_ColumnPropNameInTable="keyColumn" msprop:Generator_UserColumnName="key">
@@ -73,7 +73,7 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="value" msprop:Generator_ColumnVarNameInTable="columnvalue" msprop:Generator_ColumnPropNameInRow="value" msprop:Generator_ColumnPropNameInTable="valueColumn" msprop:Generator_UserColumnName="value" type="xs:decimal" minOccurs="0" />
+              <xs:element name="value" msprop:Generator_ColumnVarNameInTable="columnvalue" msprop:Generator_ColumnPropNameInRow="value" msprop:Generator_ColumnPropNameInTable="valueColumn" msprop:Generator_UserColumnName="value" type="xs:double" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
