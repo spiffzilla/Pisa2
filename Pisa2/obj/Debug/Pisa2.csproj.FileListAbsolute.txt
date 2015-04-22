@@ -79,3 +79,4 @@ C:\Users\shalafi\Desktop\GitHub\Pisa2\Pisa2\obj\Debug\Pisa2.TrustInfo.xml
 C:\Users\shalafi\Desktop\GitHub\Pisa2\Pisa2\obj\Debug\Pisa2.exe.manifest
 C:\Users\shalafi\Desktop\GitHub\Pisa2\Pisa2\obj\Debug\Pisa2.application
 C:\Users\shalafi\Desktop\GitHub\Pisa2\Pisa2\obj\Debug\Pisa2.csprojResolveAssemblyReference.cache
+C:\Users\joergen.bertholdsson\Documents\GitHub\Pisa2\Pisa2\obj\Debug\Pisa2.csprojResolveAssemblyReference.cache

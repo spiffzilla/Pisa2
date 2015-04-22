@@ -92,6 +92,11 @@
       <DependentUpon>aboutPisa2.cs</DependentUpon>
     </Compile>
     <Compile Include="ArticleFactor.cs" />
+    <Compile Include="dataSetPferd.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dataSetPferd.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FormHelp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +142,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="dataSetPferd.xsc">
+      <DependentUpon>dataSetPferd.xsd</DependentUpon>
+    </None>
+    <None Include="dataSetPferd.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dataSetPferd.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dataSetPferd.xss">
+      <DependentUpon>dataSetPferd.xsd</DependentUpon>
+    </None>
     <None Include="pferdDataSet01.xsc">
       <DependentUpon>pferdDataSet01.xsd</DependentUpon>
     </None>

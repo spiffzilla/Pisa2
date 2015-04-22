@@ -28,7 +28,7 @@ namespace PisaNamespace
             InitializeGUI();
             InitializeConfig();
             /*InitializeGridview();*/
-            this.dataGridView1.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView1_DataError);
+            this.dataGridViewFactors.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridViewFactors_DataError);
 
             populateDropdown();
             
@@ -428,7 +428,7 @@ namespace PisaNamespace
 
 
         ////////////////////////////////////////////////////
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
+        private void dataGridViewFactors_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
         private void label12_Click(object sender, EventArgs e) { }
         private void label9_Click(object sender, EventArgs e) { }
         private void label4_Click(object sender, EventArgs e) { }
@@ -438,8 +438,14 @@ namespace PisaNamespace
             try
             {
                 this.Validate();
+                this.factorsBindingSource2.EndEdit();
+                this.factorsTableAdapter.Update(this.dataSetPferd.factors);
+
+                /*
+                this.Validate();
                 this.factorsBindingSource1.EndEdit();
                 this.factorsTableAdapter1.Update(this.pferdDataSet01.factors);
+                */
                 StatusStripText("Informationen sparades.");
                 // Reload drop down with updated values
                 //populateDropdown();
@@ -452,10 +458,10 @@ namespace PisaNamespace
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewCell oneCell in dataGridView1.SelectedCells)
+            foreach (DataGridViewCell oneCell in dataGridViewFactors.SelectedCells)
             {
                 if (oneCell.Selected)
-                    dataGridView1.Rows.RemoveAt(oneCell.RowIndex);
+                    dataGridViewFactors.Rows.RemoveAt(oneCell.RowIndex);
             }
             StatusStripText("Raden/raderna raderades.");
         }
@@ -529,6 +535,8 @@ namespace PisaNamespace
 
         private void Pisa2_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dataSetPferd.factors' table. You can move, or remove it, as needed.
+            this.factorsTableAdapter.Fill(this.dataSetPferd.factors);
             // TODO: This line of code loads data into the 'pferdDataSet01.factors' table. You can move, or remove it, as needed.
             this.factorsTableAdapter1.Fill(this.pferdDataSet01.factors);
             /*
@@ -549,7 +557,7 @@ namespace PisaNamespace
             timerStatusStrip.Enabled = false;
         }
 
-        private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        private void dataGridViewFactors_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             // After leaving datagridview cell
             return;
@@ -557,12 +565,12 @@ namespace PisaNamespace
             // DEBUG - not executed
             try
             {
-                string test = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+                string test = dataGridViewFactors.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
                 var results = from myRow in this.pferdDataSet01.Tables[0].AsEnumerable() where myRow.Field<string>("key") == test select myRow;
                 if (results.Count() > 0)
                 {
                     MessageBox.Show("Aja baja");
-                    dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = "";
+                    dataGridViewFactors.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = "";
                     /*dataGridView1.ClearSelection();
                     dataGridView1.CurrentCell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
                     dataGridView1.Rows[e.RowIndex].Selected = true;*/
@@ -578,7 +586,7 @@ namespace PisaNamespace
         }
 
         // An error in the data occurred.
-        private void dataGridView1_DataError(object sender,
+        private void dataGridViewFactors_DataError(object sender,
             DataGridViewDataErrorEventArgs e)
         {
             // Don't throw an exception when we're done.
@@ -586,7 +594,7 @@ namespace PisaNamespace
 
             // Display an error message.
             string txt = "Error with " +
-                dataGridView1.Columns[e.ColumnIndex].HeaderText +
+                dataGridViewFactors.Columns[e.ColumnIndex].HeaderText +
                 "\n\n" + e.Exception.Message;
 
             MessageBox.Show("Inmatade värde(n) är inte OK, gör om gör rätt.\n\n"+e.Exception.Message, "Fel inmatning",
@@ -595,10 +603,10 @@ namespace PisaNamespace
 
             // If this is true, then the user is trapped in this cell.
             e.Cancel = false;
-            foreach (DataGridViewCell oneCell in dataGridView1.SelectedCells)
+            foreach (DataGridViewCell oneCell in dataGridViewFactors.SelectedCells)
             {
                 if (oneCell.Selected)
-                    dataGridView1.Rows.RemoveAt(oneCell.RowIndex);
+                    dataGridViewFactors.Rows.RemoveAt(oneCell.RowIndex);
             }
         }
     }

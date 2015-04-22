@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Pisa2.exe" size="932816">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Pisa2.exe" size="947152">
       <assemblyIdentity name="Pisa2" version="2.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ik8vUc7RIKf3KusJWrR/Ppj3349gix3+iuARfQkBG6g=</dsig:DigestValue>
+        <dsig:DigestValue>tILdraXQwrp4x0v6vXk55S/4n4ZK7cQAhRNiNKfECnc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
