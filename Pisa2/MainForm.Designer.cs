@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pisa2));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pferdDataSet01 = new PisaNamespace.pferdDataSet01();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,7 +43,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.factorsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.factorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetPferd = new PisaNamespace.dataSetPferd();
             this.label1 = new System.Windows.Forms.Label();
             this.txtPisaPris = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -86,9 +88,10 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.dataGridViewFactors = new System.Windows.Forms.DataGridView();
+            this.factorsBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnSaveArticleFactor = new System.Windows.Forms.Button();
-            this.factorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -106,14 +109,12 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtRaiseNextYearConfig = new System.Windows.Forms.TextBox();
             this.txtRaiseCurrentYearConfig = new System.Windows.Forms.TextBox();
+            this.factorsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.timerStatusStrip = new System.Windows.Forms.Timer(this.components);
             this.factorsTableAdapter1 = new PisaNamespace.pferdDataSet01TableAdapters.factorsTableAdapter();
-            this.dataGridViewFactors = new System.Windows.Forms.DataGridView();
-            this.dataSetPferd = new PisaNamespace.dataSetPferd();
-            this.factorsBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.factorsTableAdapter = new PisaNamespace.dataSetPferdTableAdapters.factorsTableAdapter();
             this.keyDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valueDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -123,19 +124,19 @@
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.factorsBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.factorsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetPferd)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.factorsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFactors)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.factorsBindingSource2)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.factorsBindingSource1)).BeginInit();
             this.statusStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFactors)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetPferd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.factorsBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // pferdDataSet01
@@ -265,10 +266,15 @@
             this.comboBox1.ValueMember = "factors.value";
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // factorsBindingSource1
+            // factorsBindingSource
             // 
-            this.factorsBindingSource1.DataMember = "factors";
-            this.factorsBindingSource1.DataSource = this.pferdDataSet01;
+            this.factorsBindingSource.DataMember = "factors";
+            this.factorsBindingSource.DataSource = this.pferdDataSet01;
+            // 
+            // dataSetPferd
+            // 
+            this.dataSetPferd.DataSetName = "dataSetPferd";
+            this.dataSetPferd.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label1
             // 
@@ -728,6 +734,24 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Omräkningsfaktorer";
             // 
+            // dataGridViewFactors
+            // 
+            this.dataGridViewFactors.AutoGenerateColumns = false;
+            this.dataGridViewFactors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewFactors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.keyDataGridViewTextBoxColumn1,
+            this.valueDataGridViewTextBoxColumn1});
+            this.dataGridViewFactors.DataSource = this.factorsBindingSource2;
+            this.dataGridViewFactors.Location = new System.Drawing.Point(6, 19);
+            this.dataGridViewFactors.Name = "dataGridViewFactors";
+            this.dataGridViewFactors.Size = new System.Drawing.Size(271, 303);
+            this.dataGridViewFactors.TabIndex = 1;
+            // 
+            // factorsBindingSource2
+            // 
+            this.factorsBindingSource2.DataMember = "factors";
+            this.factorsBindingSource2.DataSource = this.dataSetPferd;
+            // 
             // btnDelete
             // 
             this.btnDelete.Location = new System.Drawing.Point(284, 299);
@@ -748,11 +772,6 @@
             this.btnSaveArticleFactor.Text = "Spara";
             this.btnSaveArticleFactor.UseVisualStyleBackColor = true;
             this.btnSaveArticleFactor.Click += new System.EventHandler(this.btnSaveArticleFactor_Click);
-            // 
-            // factorsBindingSource
-            // 
-            this.factorsBindingSource.DataMember = "factors";
-            this.factorsBindingSource.DataSource = this.pferdDataSet01;
             // 
             // tabPage2
             // 
@@ -916,6 +935,11 @@
             this.txtRaiseCurrentYearConfig.Size = new System.Drawing.Size(67, 20);
             this.txtRaiseCurrentYearConfig.TabIndex = 18;
             // 
+            // factorsBindingSource1
+            // 
+            this.factorsBindingSource1.DataMember = "factors";
+            this.factorsBindingSource1.DataSource = this.pferdDataSet01;
+            // 
             // statusStrip
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -940,29 +964,6 @@
             // 
             this.factorsTableAdapter1.ClearBeforeFill = true;
             // 
-            // dataGridViewFactors
-            // 
-            this.dataGridViewFactors.AutoGenerateColumns = false;
-            this.dataGridViewFactors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewFactors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.keyDataGridViewTextBoxColumn1,
-            this.valueDataGridViewTextBoxColumn1});
-            this.dataGridViewFactors.DataSource = this.factorsBindingSource2;
-            this.dataGridViewFactors.Location = new System.Drawing.Point(6, 19);
-            this.dataGridViewFactors.Name = "dataGridViewFactors";
-            this.dataGridViewFactors.Size = new System.Drawing.Size(271, 303);
-            this.dataGridViewFactors.TabIndex = 1;
-            // 
-            // dataSetPferd
-            // 
-            this.dataSetPferd.DataSetName = "dataSetPferd";
-            this.dataSetPferd.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // factorsBindingSource2
-            // 
-            this.factorsBindingSource2.DataMember = "factors";
-            this.factorsBindingSource2.DataSource = this.dataSetPferd;
-            // 
             // factorsTableAdapter
             // 
             this.factorsTableAdapter.ClearBeforeFill = true;
@@ -970,14 +971,21 @@
             // keyDataGridViewTextBoxColumn1
             // 
             this.keyDataGridViewTextBoxColumn1.DataPropertyName = "key";
-            this.keyDataGridViewTextBoxColumn1.HeaderText = "key";
+            this.keyDataGridViewTextBoxColumn1.HeaderText = "Artikel";
+            this.keyDataGridViewTextBoxColumn1.MaxInputLength = 15;
             this.keyDataGridViewTextBoxColumn1.Name = "keyDataGridViewTextBoxColumn1";
+            this.keyDataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // valueDataGridViewTextBoxColumn1
             // 
             this.valueDataGridViewTextBoxColumn1.DataPropertyName = "value";
-            this.valueDataGridViewTextBoxColumn1.HeaderText = "value";
+            dataGridViewCellStyle1.Format = "N3";
+            dataGridViewCellStyle1.NullValue = null;
+            this.valueDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            this.valueDataGridViewTextBoxColumn1.HeaderText = "Faktor";
+            this.valueDataGridViewTextBoxColumn1.MaxInputLength = 15;
             this.valueDataGridViewTextBoxColumn1.Name = "valueDataGridViewTextBoxColumn1";
+            this.valueDataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // Pisa2
             // 
@@ -992,7 +1000,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "Pisa2";
-            this.Text = "Pisa 2 v2.0";
+            this.Text = "Pisa 2 v3.0";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Pisa2_FormClosing);
             this.Load += new System.EventHandler(this.Pisa2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pferdDataSet01)).EndInit();
@@ -1004,23 +1012,23 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.factorsBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.factorsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetPferd)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.factorsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFactors)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.factorsBindingSource2)).EndInit();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.factorsBindingSource1)).EndInit();
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFactors)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetPferd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.factorsBindingSource2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

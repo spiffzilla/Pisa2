@@ -62,14 +62,14 @@ C:\Users\joergen.bertholdsson\Documents\GitHub\Pisa2\Pisa2\obj\Debug\Pisa2.exe.m
 C:\Users\joergen.bertholdsson\Documents\GitHub\Pisa2\Pisa2\obj\Debug\Pisa2.application
 C:\Users\joergen.bertholdsson\Documents\GitHub\Pisa2\Pisa2\obj\Debug\Pisa2.exe
 C:\Users\joergen.bertholdsson\Documents\GitHub\Pisa2\Pisa2\obj\Debug\Pisa2.pdb
-C:\Users\shalafi\Desktop\GitHub\Pisa2\Pisa2\bin\Debug\Pisa2.exe.config
-C:\Users\shalafi\Desktop\GitHub\Pisa2\Pisa2\obj\Debug\Pisa2.exe
-C:\Users\shalafi\Desktop\GitHub\Pisa2\Pisa2\obj\Debug\Pisa2.pdb
+C:\Users\joergen.bertholdsson\Documents\GitHub\Pisa2\Pisa2\obj\Debug\Pisa2.csprojResolveAssemblyReference.cache
 C:\Users\shalafi\Desktop\GitHub\Pisa2\Pisa2\bin\Debug\pferd.mdb
+C:\Users\shalafi\Desktop\GitHub\Pisa2\Pisa2\bin\Debug\Pisa2.exe.config
 C:\Users\shalafi\Desktop\GitHub\Pisa2\Pisa2\bin\Debug\Pisa2.exe.manifest
 C:\Users\shalafi\Desktop\GitHub\Pisa2\Pisa2\bin\Debug\Pisa2.application
 C:\Users\shalafi\Desktop\GitHub\Pisa2\Pisa2\bin\Debug\Pisa2.exe
 C:\Users\shalafi\Desktop\GitHub\Pisa2\Pisa2\bin\Debug\Pisa2.pdb
+C:\Users\shalafi\Desktop\GitHub\Pisa2\Pisa2\obj\Debug\Pisa2.csprojResolveAssemblyReference.cache
 C:\Users\shalafi\Desktop\GitHub\Pisa2\Pisa2\obj\Debug\PisaNamespace.aboutPisa2.resources
 C:\Users\shalafi\Desktop\GitHub\Pisa2\Pisa2\obj\Debug\PisaNamespace.FormHelp.resources
 C:\Users\shalafi\Desktop\GitHub\Pisa2\Pisa2\obj\Debug\PisaNamespace.Pisa2.resources
@@ -78,5 +78,5 @@ C:\Users\shalafi\Desktop\GitHub\Pisa2\Pisa2\obj\Debug\Pisa2.csproj.GenerateResou
 C:\Users\shalafi\Desktop\GitHub\Pisa2\Pisa2\obj\Debug\Pisa2.TrustInfo.xml
 C:\Users\shalafi\Desktop\GitHub\Pisa2\Pisa2\obj\Debug\Pisa2.exe.manifest
 C:\Users\shalafi\Desktop\GitHub\Pisa2\Pisa2\obj\Debug\Pisa2.application
-C:\Users\shalafi\Desktop\GitHub\Pisa2\Pisa2\obj\Debug\Pisa2.csprojResolveAssemblyReference.cache
-C:\Users\joergen.bertholdsson\Documents\GitHub\Pisa2\Pisa2\obj\Debug\Pisa2.csprojResolveAssemblyReference.cache
+C:\Users\shalafi\Desktop\GitHub\Pisa2\Pisa2\obj\Debug\Pisa2.exe
+C:\Users\shalafi\Desktop\GitHub\Pisa2\Pisa2\obj\Debug\Pisa2.pdb
