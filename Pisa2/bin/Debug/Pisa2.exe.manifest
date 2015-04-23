@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Hf2xbduqwYs7g6+ylyHvg9V9EMyUW9iN7Qs8aiV8sGM=</dsig:DigestValue>
+        <dsig:DigestValue>dIAi5Ork5O2POuVmFO6ORcGJewa0XEHuLcN8/vmx+Ws=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -60,7 +60,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>JDd/aMbuMg0jlidOyrcp/mYzDw9Cztee7VjnDBm0Sew=</dsig:DigestValue>
+      <dsig:DigestValue>SsUoQldbpzNb7D7b1vFa+vK/yPmCZ0DP8Z3PpZZz7vc=</dsig:DigestValue>
     </hash>
   </file>
   <file name="pferd-logga.ico" size="248222">

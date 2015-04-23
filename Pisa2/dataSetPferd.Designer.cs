@@ -800,7 +800,7 @@ namespace PisaNamespace.dataSetPferdTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT [key], [value] FROM factors";
+            this._commandCollection[0].CommandText = "SELECT [key], [value] FROM factors order by [key] ";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
