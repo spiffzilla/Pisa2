@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pisa2));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pferdDataSet01 = new PisaNamespace.pferdDataSet01();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -971,6 +972,9 @@
             // keyDataGridViewTextBoxColumn1
             // 
             this.keyDataGridViewTextBoxColumn1.DataPropertyName = "key";
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.keyDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
             this.keyDataGridViewTextBoxColumn1.HeaderText = "Artikel";
             this.keyDataGridViewTextBoxColumn1.MaxInputLength = 15;
             this.keyDataGridViewTextBoxColumn1.Name = "keyDataGridViewTextBoxColumn1";
@@ -979,9 +983,9 @@
             // valueDataGridViewTextBoxColumn1
             // 
             this.valueDataGridViewTextBoxColumn1.DataPropertyName = "value";
-            dataGridViewCellStyle1.Format = "N3";
-            dataGridViewCellStyle1.NullValue = null;
-            this.valueDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.valueDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle2;
             this.valueDataGridViewTextBoxColumn1.HeaderText = "Faktor";
             this.valueDataGridViewTextBoxColumn1.MaxInputLength = 15;
             this.valueDataGridViewTextBoxColumn1.Name = "valueDataGridViewTextBoxColumn1";
