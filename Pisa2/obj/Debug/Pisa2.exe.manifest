@@ -4,7 +4,7 @@
   <description asmv2:iconFile="pferd-logga.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="Pisa2" version="2.0.0.0" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="Pisa2" version="3.0.0.0" language="neutral" processorArchitecture="msil" />
     <commandLine file="Pisa2.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Pisa2.exe" size="947152">
-      <assemblyIdentity name="Pisa2" version="2.0.0.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Pisa2.exe" size="947664">
+      <assemblyIdentity name="Pisa2" version="3.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>HJIwyS77O5LxTnTyqnoXlLSzC3isxJaOaTC8dlBZwXQ=</dsig:DigestValue>
+        <dsig:DigestValue>tYttTdZXbF/Rc8eZhZdSxyb8GEUMOJesaP4ZDTK3ZVs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -72,13 +72,13 @@
       <dsig:DigestValue>W19PTLQgMjxlOOG7N5x7f9lkA4DFMdiPdgUDkVnIjh0=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Pisa2.exe.config" size="2108">
+  <file name="Pisa2.exe.config" size="3909">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>WPcvdoSmd/KK7x8w6rOUjvBBFXDbNYRtYyC59YHnxbA=</dsig:DigestValue>
+      <dsig:DigestValue>/PuqHrtZvXpgRS38EfeUtml67mMwwfN5/7JpadpiiS4=</dsig:DigestValue>
     </hash>
   </file>
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">

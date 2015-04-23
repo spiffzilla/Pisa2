@@ -195,7 +195,7 @@ namespace PisaNamespace
             sliding = pisaPrice - (rabatt / 100 * pisaPrice);            // 2
 
             // Check if year is 2014 or later
-            if (Year() == 2014)
+            if (Year() == 2015)
             {
                 gross = sliding / 100 * euroRateCurrentYear;                 // 1
             }

@@ -1,5 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Pisa2.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="PisaNamespace.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
     <Setting Name="raise_current_year" Type="System.Double" Scope="User">
@@ -15,10 +15,10 @@
       <Value Profile="(Default)">8.75</Value>
     </Setting>
     <Setting Name="current_year" Type="System.String" Scope="User">
-      <Value Profile="(Default)">2014</Value>
+      <Value Profile="(Default)">2015</Value>
     </Setting>
     <Setting Name="next_year" Type="System.String" Scope="User">
-      <Value Profile="(Default)">2015</Value>
+      <Value Profile="(Default)">2016</Value>
     </Setting>
     <Setting Name="ArticleFactors" Type="System.String" Scope="User">
       <Value Profile="(Default)">Välj Artikel:000,AAA:111,BBB:222,CCC:333,DDD:444,EEE:555,FFF:666,GGG:777,HHH:888,III:999,JJJ:000,XAA:111,XBB:222,XCC:333,XDD:444,XEE:555,XFF:666,XGG:777,XHH:888,XII:999,XJJ:000</Value>
@@ -30,6 +30,9 @@
   &lt;ProviderName&gt;System.Data.OleDb&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\pferd.mdb</Value>
+    </Setting>
+    <Setting Name="Copyrigt" Type="System.String" Scope="User">
+      <Value Profile="(Default)">2015 Jörgen Bertholdsson / Micha Bertholdsson</Value>
     </Setting>
   </Settings>
 </SettingsFile>
